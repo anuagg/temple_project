@@ -1,0 +1,18 @@
+.container {
+    text-align: justify;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    padding: 1.2em;
+    width: 70%;
+    border: 1px solid blanchedalmond;
+    background-color: ghostwhite;
+    margin: 0.3em;
+}
+
+.container ul {
+
+}
+
+.container li {
+    padding: 0.2em;
+}
