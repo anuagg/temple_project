@@ -1,18 +1,18 @@
 .container {
-    text-align: justify;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    padding: 1.2em;
+    padding: 5.2em;
     width: 70%;
-    border: 1px solid blanchedalmond;
-    background-color: ghostwhite;
     margin: 0.3em;
 }
 
-.container ul {
-
+.question {
+    font-weight: bold;
 }
 
-.container li {
-    padding: 0.2em;
+.answer {
+    margin-bottom: 1em;
+}
+
+.container img {
+    width: 16em;
+    margin-bottom: 2em;
 }

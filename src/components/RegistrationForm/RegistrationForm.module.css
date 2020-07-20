@@ -1,34 +1,81 @@
 .container {
     text-align: center;
     padding: 1em;
-    width: 40vw;
-    border: 1px solid blanchedalmond;
-    background-color: linen;
-    margin: 0.3em;
+    width: 50vw;
+    background-color: white;
+    margin: 5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
 .heading {
-    background-color: sandybrown;
     padding: 0.4em;
-    margin-bottom: 1em;
+    margin-bottom: 0.6em;
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.3em;
+    line-height: 2rem;
+    margin-top: 5em;
 }
 
-.container label {
-    padding: 0.2em;
-    text-align: left;
+.subHeading {
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.2em;
+    margin-bottom: 2em;
+    color: rgba(0, 0, 0, 0.54);
 }
 
 .container input {
-    padding: 0.7em;
+    padding: 1em;
+    width: 50%;
+    border: 1px solid #AAAAAA;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin: 0.6em;
+}
+
+.container input[type="radio" i] {
+    width: 10%;
+}
+
+.container label {
+    margin-right: 1em;
+    align-self: center;
+}
+
+.slokas {
+    margin: 1em;
+    padding: 1em 12em;
+    text-align-last: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+.slokas select {
+    border: 1px solid #AAAAAA;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: black;
+    width: 4em;
+    height: 3em;
     text-align: center;
-    margin-left: 1em;
 }
 
 .container button{
-    background-color: indianred;
-    width: 80%;
+    background-color: #0D5EFC;
+    width: 25%;
     margin: 1em;
     border: 1px solid white;
     color: aliceblue;
     padding: 1em;
+    border-radius: 1em;
+}
+
+.lang {
+    float: left !important;
+    width: 100%;
+    display: flex;
+    position: relative;
 }

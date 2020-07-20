@@ -1,5 +1,12 @@
 .container {
     display: inline-flex;
     width: 100%;
-    height: max-content;
+    background-color: #E5E5E5;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 150%;
+    text-align: center;
+    color: #66665D;
 }
