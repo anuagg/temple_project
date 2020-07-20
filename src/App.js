@@ -4,9 +4,9 @@ import TemplePageBuilder from "./container/TemplePageBuilder/TemplePageBuilder";
 
 function App() {
   return (
-    <div className="App">
-      <TemplePageBuilder></TemplePageBuilder>
-    </div>
+      <div className="App">
+          <TemplePageBuilder></TemplePageBuilder>
+      </div>
   );
 }
 

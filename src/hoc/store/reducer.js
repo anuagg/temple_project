@@ -1,7 +1,7 @@
 import * as actionTypes from "../store/action";
 
 const initialState = {
-    language: "english",
+    language: "English",
     audio: false
 }
 
