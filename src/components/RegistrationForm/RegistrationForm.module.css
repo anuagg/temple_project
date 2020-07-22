@@ -81,3 +81,7 @@
     display: flex;
     position: relative;
 }
+
+.notValid {
+    background-color : rgba(255, 0, 0, 0.2);
+}

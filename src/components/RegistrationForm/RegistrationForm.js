@@ -30,29 +30,85 @@ class RegistrationForm extends Component {
         teluguHeading : {
             title: "సనాతన ధనం\"కు స్వాగతం!",
             subtitle: "శ్లోకాలకోసం ఇక్కడ మీ వివరాలు నమోదు చేసుకోండి"
+        },
+        validity: {
+            firstName: {
+                valid: false,
+                touched: false
+            },
+            lastName: {
+                valid: false,
+                touched: false
+            },
+            emailId: {
+                valid: false,
+                touched: false
+            }
         }
+
     }
 
     handleChangeFirstName(event) {
         this.setState({
-            firstName : event.target.value
+            firstName : event.target.value,
+            validity : {
+                ...this.state.validity,
+                firstName: {
+                    valid: this.checkValidity(event.target.value, 'fName'),
+                    touched: true
+                }
+            }
         });
     }
 
     handleChangeLastName(event) {
         this.setState({
-            lastName : event.target.value
+            lastName : event.target.value,
+            validity : {
+                ...this.state.validity,
+                lastName: {
+                    valid: this.checkValidity(event.target.value, 'lName'),
+                    touched: true
+                }
+            }
         });
     }
+
     handleChangeEmailId(event) {
         this.setState({
-            emailId : event.target.value
+            emailId : event.target.value,
+            validity : {
+                ...this.state.validity,
+                emailId: {
+                    valid: this.checkValidity(event.target.value, 'email'),
+                    touched: true
+                }
+            }
         });
     }
+
     handleChangeSlokas(event) {
         this.setState({
             noOfSlokas : event.target.value
         });
+    }
+
+    checkValidity(value, type) {
+        switch(type) {
+            case 'fName':
+            case 'lName':
+               return value.trim() !== '';
+            case 'email':
+                return ((value.trim() !== '') && (value.indexOf('@') > 0));
+            case 'form':
+                let valid = true;
+                Object.keys(this.state.validity).forEach(key => {
+                    valid = valid && this.state.validity[key].valid;
+                });
+                return valid;
+            default:
+                return false;
+        }
     }
 
     handleSubmit = () => {
@@ -85,11 +141,14 @@ class RegistrationForm extends Component {
                 </div>
                 <div className={classes.heading}>{headingText.title}</div>
                 <div className={classes.subHeading}>{headingText.subtitle}</div>
-                <input type="text" value={this.state.firstName} placeholder={placeholderTexts.firstName}
+                <input className={!this.state.validity.firstName.valid && this.state.validity.firstName.touched ? classes.notValid : ''}
+                       type="text" value={this.state.firstName} placeholder={placeholderTexts.firstName}
                        onChange={this.handleChangeFirstName.bind(this)} />
-                <input type="text" value={this.state.lastName} placeholder={placeholderTexts.lastName}
+                <input className={!this.state.validity.lastName.valid && this.state.validity.lastName.touched ? classes.notValid : ''}
+                       type="text" value={this.state.lastName} placeholder={placeholderTexts.lastName}
                        onChange={this.handleChangeLastName.bind(this)} />
-                <input type="email" value={this.state.emailId} placeholder={placeholderTexts.emailId}
+                <input className={!this.state.validity.emailId.valid && this.state.validity.emailId.touched ? classes.notValid : ''}
+                    type="email" value={this.state.emailId} placeholder={placeholderTexts.emailId}
                        onChange={this.handleChangeEmailId.bind(this)} />
                 <div className={classes.slokas}>
                     <label htmlFor="slokas">{placeholderTexts.noOfSlokas}</label>
@@ -101,7 +160,7 @@ class RegistrationForm extends Component {
                     </select>
                 </div>
 
-                <button onClick={this.handleSubmit} >{placeholderTexts.register}</button>
+                <button disabled={!this.checkValidity(undefined, 'form')} onClick={this.handleSubmit} >{placeholderTexts.register}</button>
             </div>
         );
     }
